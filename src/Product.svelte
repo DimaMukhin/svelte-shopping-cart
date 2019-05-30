@@ -28,6 +28,12 @@
         background: #b10057;
         border: 1px solid #b10057;
         color: white;
+        cursor: pointer;
+    }
+
+    button:hover,
+    button:active {
+        box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.26);
     }
 </style>
 
