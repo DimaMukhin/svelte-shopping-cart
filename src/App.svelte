@@ -1,4 +1,6 @@
 <script>
+    import Product from './Product.svelte';
+
 	export let name;
 </script>
 
@@ -8,4 +10,4 @@
 	}
 </style>
 
-<h1>Hello {name}!</h1>
+<Product />
