@@ -38,4 +38,4 @@
   </div>
 </section>
 
-<Product />
+<Product productTitle={title} productPrice={price} productDescription={description} />

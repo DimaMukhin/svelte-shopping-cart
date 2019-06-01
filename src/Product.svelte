@@ -1,3 +1,9 @@
+<script>
+    export let productTitle;
+    export let productDescription;
+    export let productPrice;
+</script>
+
 <style>
     div {
         margin: 1rem;
@@ -38,8 +44,8 @@
 </style>
 
 <div>
-    <h1>TITLE</h1>
-    <h2>PRICE</h2>
-    <p>DESCRIPTION</p>
+    <h1>{productTitle}</h1>
+    <h2>{productPrice}</h2>
+    <p>{productDescription}</p>
     <button>Add to Cart</button>
 </div>
