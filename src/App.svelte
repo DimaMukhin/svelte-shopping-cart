@@ -1,32 +1,45 @@
 <script>
   import Product from "./Product.svelte";
+  import Button from "./Button.svelte";
 
-  let title = '';
-  let price = '';
-  let description = '';
+  let title = "";
+  let price = "";
+  let description = "";
+
+  let products = [];
 
   function setTitle(event) {
-      title = event.target.value;
+    title = event.target.value;
+  }
+
+  function createProduct() {
+    const newProduct = {
+      title,
+      price,
+      description
+    };
+
+    products = products.concat(newProduct);
   }
 </script>
 
 <style>
   section {
-      width: 30rem;
-      margin: auto;
+    width: 30rem;
+    margin: auto;
   }
 
   label,
   input,
   textarea {
-      width: 100%;
+    width: 100%;
   }
 </style>
 
 <section>
   <div>
     <label for="title">Title</label>
-    <input type="text" id="title" value="{title}" on:input="{setTitle}" />
+    <input type="text" id="title" value={title} on:input={setTitle} />
   </div>
   <div>
     <label for="price">Price</label>
@@ -36,6 +49,17 @@
     <label for="description">Description</label>
     <textarea rows="3" id="description" bind:value={description} />
   </div>
+
+  <Button on:click={createProduct}>Create Product</Button>
 </section>
 
-<Product productTitle={title} productPrice={price} productDescription={description} />
+{#if products.length === 0}
+  <p>No products were added yet!</p>
+{:else}
+  {#each products as product}
+    <Product
+      productTitle={product.title}
+      productPrice={product.price}
+      productDescription={product.description} />
+  {/each}
+{/if}
